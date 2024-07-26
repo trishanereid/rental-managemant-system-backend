@@ -6,6 +6,8 @@ import edu.icet.rental_management_system.entity.CustomerEntity;
 import edu.icet.rental_management_system.repository.CustomerRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 @RequiredArgsConstructor
 @Service
@@ -33,4 +35,18 @@ public class CustomerBoImpl implements CustomerBo{
         CustomerEntity byCustomerId = repository.findByCustomerId(customerId);
         return mapper.convertValue(byCustomerId, Customer.class);
     }
+
+    @Override
+    public void deleteById(Long customerId) {
+        repository.deleteById(customerId);
+    }
+
+    @Override
+    public void delete(Customer customer) {
+        repository.delete(
+                mapper.convertValue(customer, CustomerEntity.class)
+        );
+    }
+
+
 }

@@ -8,4 +8,8 @@ public interface CustomerBo {
     void update(Customer customer);
 
     Customer searchById(Long customerId);
+
+    void deleteById(Long customerId);
+
+    void delete(Customer customer);
 }

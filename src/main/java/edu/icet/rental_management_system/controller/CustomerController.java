@@ -26,4 +26,13 @@ public class CustomerController {
         return customerBo.searchById(customerId);
     }
 
+    @DeleteMapping("/delete-customer/{customerId}")
+    public void deleteById(@PathVariable Long customerId){
+        customerBo.deleteById(customerId);
+    }
+
+    @DeleteMapping("/delete-customer")
+    public void delete(@RequestBody Customer customer){
+        customerBo.delete(customer);
+    }
 }
