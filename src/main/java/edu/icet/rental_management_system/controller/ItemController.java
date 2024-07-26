@@ -22,4 +22,14 @@ public class ItemController {
     public Item findCustomerById(@PathVariable Long itemId){
         return itemBo.searchById(itemId);
     }
+
+    @DeleteMapping("/delete-item/{itemId}")
+    public void deleteById(@PathVariable Long itemId){
+        itemBo.deleteById(itemId);
+    }
+
+    @DeleteMapping("/delete-item")
+    public void delete(@RequestBody Item item){
+        itemBo.delete(item);
+    }
 }

@@ -25,4 +25,17 @@ public class ItemBoImpl implements ItemBo {
         return mapper.convertValue(byItemId, Item.class);
     }
 
+    @Override
+    public void deleteById(Long itemId) {
+        repository.deleteById(itemId);
+    }
+
+    @Override
+    public void delete(Item item) {
+        repository.delete(
+                mapper.convertValue(item, ItemEntity.class)
+        );
+    }
+
+
 }

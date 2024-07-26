@@ -6,4 +6,8 @@ public interface ItemBo {
     void addItem(Item item);
 
     Item searchById(Long itemId);
+
+    void deleteById(Long itemId);
+
+    void delete(Item item);
 }
