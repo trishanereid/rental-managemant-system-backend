@@ -1,8 +1,6 @@
 package edu.icet.rental_management_system.controller;
 
-import edu.icet.rental_management_system.bo.ItemBo;
 import edu.icet.rental_management_system.bo.RentalBo;
-import edu.icet.rental_management_system.dto.Item;
 import edu.icet.rental_management_system.dto.Rental;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -20,7 +18,7 @@ public class RentalController {
     }
 
     @GetMapping("/search-rent-by-id/{rentId}")
-    public Item findCustomerById(@PathVariable Long rentId){
+    public Rental findCustomerById(@PathVariable Long rentId){
         return rentalBo.searchById(rentId);
     }
 

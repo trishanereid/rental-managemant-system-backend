@@ -1,7 +1,6 @@
 package edu.icet.rental_management_system.bo;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import edu.icet.rental_management_system.dto.Item;
 import edu.icet.rental_management_system.dto.Rental;
 import edu.icet.rental_management_system.entity.RentalEntity;
 import edu.icet.rental_management_system.repository.RentalRepository;
@@ -15,17 +14,20 @@ public class RentalBoImpl implements RentalBo{
     final ObjectMapper mapper;
     @Override
     public void addRent(Rental rental) {
-
+        repository.save(
+                mapper.convertValue(rental, RentalEntity.class)
+        );
     }
 
     @Override
-    public Item searchById(Long rentId) {
-        return null;
+    public Rental searchById(Long rentId) {
+        RentalEntity byRentalId = repository.findByRentId(rentId);
+        return mapper.convertValue(byRentalId, Rental.class);
     }
 
     @Override
     public void deleteById(Long rentId) {
-
+        repository.deleteById(rentId);
     }
 
     @Override
