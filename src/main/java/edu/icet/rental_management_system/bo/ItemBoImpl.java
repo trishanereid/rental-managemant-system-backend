@@ -19,4 +19,10 @@ public class ItemBoImpl implements ItemBo {
         );
     }
 
+    @Override
+    public Item searchById(Long itemId) {
+        ItemEntity byItemId = repository.findByItemId(itemId);
+        return mapper.convertValue(byItemId, Item.class);
+    }
+
 }
