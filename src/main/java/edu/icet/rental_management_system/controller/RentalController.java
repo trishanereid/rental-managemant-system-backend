@@ -22,6 +22,11 @@ public class RentalController {
         return rentalBo.searchById(rentId);
     }
 
+    @PostMapping("/update-rental")
+    public void update(@RequestBody Rental rental){
+        rentalBo.update(rental);
+    }
+
     @DeleteMapping("/delete-rental/{rentId}")
     public void deleteById(@PathVariable Long rentId){
         rentalBo.deleteById(rentId);

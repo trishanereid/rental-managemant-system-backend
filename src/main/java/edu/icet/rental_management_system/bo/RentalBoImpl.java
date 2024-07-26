@@ -34,4 +34,13 @@ public class RentalBoImpl implements RentalBo{
     public Iterable<RentalEntity> viewAll() {
         return repository.findAll();
     }
+
+    @Override
+    public void update(Rental rental) {
+        if (repository.findById(rental.getRentId()).isPresent()){
+            repository.save(
+                    mapper.convertValue(rental, RentalEntity.class)
+            );
+        }
+    }
 }

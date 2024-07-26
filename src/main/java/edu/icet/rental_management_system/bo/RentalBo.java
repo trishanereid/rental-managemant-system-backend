@@ -11,4 +11,6 @@ public interface RentalBo {
     void deleteById(Long rentId);
 
     Iterable<RentalEntity> viewAll();
+
+    void update(Rental rental);
 }
