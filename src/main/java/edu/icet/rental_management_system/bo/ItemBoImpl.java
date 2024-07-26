@@ -37,5 +37,10 @@ public class ItemBoImpl implements ItemBo {
         );
     }
 
+    @Override
+    public Iterable<ItemEntity> getAll() {
+        return repository.findAll();
+    }
+
 
 }

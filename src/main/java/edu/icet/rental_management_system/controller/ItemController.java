@@ -2,6 +2,7 @@ package edu.icet.rental_management_system.controller;
 
 import edu.icet.rental_management_system.bo.ItemBo;
 import edu.icet.rental_management_system.dto.Item;
+import edu.icet.rental_management_system.entity.ItemEntity;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -30,5 +31,10 @@ public class ItemController {
     @DeleteMapping("/delete-item")
     public void delete(@RequestBody Item item){
         itemBo.delete(item);
+    }
+
+    @GetMapping("/get-all-items")
+    public Iterable<ItemEntity> getAll(){
+        return itemBo.getAll();
     }
 }
